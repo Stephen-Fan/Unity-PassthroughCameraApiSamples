@@ -119,15 +119,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a85fc80cf14595479bd0967c6f46dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_inputSize: {x: 640, y: 640}
-  m_backend: 512
-  m_sentisModel: {fileID: 5022602860645237092, guid: 69ab50aef18ae412cac4b305492d527c, type: 3}
-  m_layersPerFrame: 39
-  m_labelsAsset: {fileID: 4900000, guid: c01c64149c7930b45a76559caabd5c78, type: 3}
+  serverUrl: https://3663-172-191-52-165.ngrok-free.app/infer
+  passthroughCamera: {fileID: 0}
   m_uiInference: {fileID: 2184060436030677583}
-  OnnxModel: {fileID: 5022602860645237092, guid: e61826a46beb24bb380fd628c56eacaa, type: 3}
-  m_iouThreshold: 0.57
-  m_scoreThreshold: 0.37
+  m_labelsAsset: {fileID: 4900000, guid: c01c64149c7930b45a76559caabd5c78, type: 3}
+  inferenceManager: {fileID: 0}
+  webCamTextureManager: {fileID: 0}
+  passthroughRawImage: {fileID: 0}
+  confidenceThreshold: 0.5
 --- !u!114 &2184060436030677583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_environmentRaycast: {fileID: 0}
   m_webCamTextureManager: {fileID: 0}
+  UICanvas: {fileID: 0}
   m_detectionCanvas: {fileID: 4976470222712890361}
   m_displayImage: {fileID: 144095598799144303}
   m_boxTexture: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
@@ -164,6 +164,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  classNames: []
+  BoundingBoxPrefab: {fileID: 0}
+  BoxParent: {fileID: 0}
 --- !u!114 &4976470222712890361
 MonoBehaviour:
   m_ObjectHideFlags: 0
