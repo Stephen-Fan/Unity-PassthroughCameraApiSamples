@@ -7,6 +7,9 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using PCD = PassthroughCameraSamples.PassthroughCameraDebugger;
 
+// New Added
+using UnityEngine.UI;
+
 namespace PassthroughCameraSamples
 {
     [MetaCodeSample("PassthroughCameraApiSamples-PassthroughCamera")]
@@ -17,6 +20,9 @@ namespace PassthroughCameraSamples
                                  "When set to (0,0), the highest supported resolution will be used.")]
         public Vector2Int RequestedResolution;
         [SerializeField] public PassthroughCameraPermissions CameraPermissions;
+
+        // New Added
+        [SerializeField] public RawImage outputImage; 
 
         /// <summary>
         /// Returns <see cref="WebCamTexture"/> reference if required permissions were granted and this component is enabled. Else, returns null.
@@ -117,12 +123,21 @@ namespace PassthroughCameraSamples
                             webCamTexture = new WebCamTexture(deviceName, RequestedResolution.x, RequestedResolution.y);
                         }
                         webCamTexture.Play();
+
+                        WebCamTexture = webCamTexture;
+
+                        // New Added: Assign texture to RawImage
+                        if (outputImage != null)
+                        {
+                            outputImage.texture = WebCamTexture;
+                        }
+
                         var currentResolution = new Vector2Int(webCamTexture.width, webCamTexture.height);
                         if (RequestedResolution != Vector2Int.zero && RequestedResolution != currentResolution)
                         {
                             PCD.DebugMessage(LogType.Warning, $"WebCamTexture created, but '{nameof(RequestedResolution)}' {RequestedResolution} is not supported. Current resolution: {currentResolution}.");
                         }
-                        WebCamTexture = webCamTexture;
+                        // WebCamTexture = webCamTexture;
                         PCD.DebugMessage(LogType.Log, $"WebCamTexture created, texturePtr: {WebCamTexture.GetNativeTexturePtr()}, size: {WebCamTexture.width}/{WebCamTexture.height}");
                         yield break;
                     }
