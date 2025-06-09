@@ -1948,7 +1948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2681575481727882275, guid: 927c1b782bb796b4b9b433d533cbccca, type: 3}
       propertyPath: serverUrl
-      value: https://41a5-172-191-52-165.ngrok-free.app/infer
+      value: https://04ec-172-191-52-165.ngrok-free.app/infer
       objectReference: {fileID: 0}
     - target: {fileID: 2681575481727882275, guid: 927c1b782bb796b4b9b433d533cbccca, type: 3}
       propertyPath: m_labelsAsset
