@@ -261,7 +261,7 @@ namespace PassthroughCameraSamples.MultiObjectDetection
     public class SentisInferenceRunManager : MonoBehaviour
     {
         [Header("Server Inference Config")]
-        public string serverUrl = "https://1d47-172-191-52-165.ngrok-free.app/infer";
+        public string serverUrl = "https://04ec-172-191-52-165.ngrok-free.app/infer";
         public Camera passthroughCamera;
 
         [Header("Detection UI")]

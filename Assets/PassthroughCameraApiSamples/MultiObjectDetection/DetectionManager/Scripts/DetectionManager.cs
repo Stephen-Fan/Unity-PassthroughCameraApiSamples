@@ -120,7 +120,7 @@ namespace PassthroughCameraSamples.MultiObjectDetection
             var count = 0;
             foreach (var box in m_uiInference.BoxDrawn)
             {
-                if (PlaceMarkerUsingEnvironmentRaycast(box.WorldPos, box.ClassName))
+                if (PlaceMarkerUsingEnvironmentRaycast(box.WorldPos, box.ClassName, box.ClassID))
                 {
                     count++;
                 }
@@ -136,7 +136,7 @@ namespace PassthroughCameraSamples.MultiObjectDetection
         /// <summary>
         /// Place a marker using the environment raycast
         /// </summary>
-        private bool PlaceMarkerUsingEnvironmentRaycast(Vector3? position, string className)
+        private bool PlaceMarkerUsingEnvironmentRaycast(Vector3? position, string className, int classId)
         {
             // Check if the position is valid
             if (!position.HasValue)
@@ -164,6 +164,15 @@ namespace PassthroughCameraSamples.MultiObjectDetection
             {
                 // spawn a visual marker
                 var eMarker = Instantiate(m_spwanMarker);
+
+                // Set class info for popup
+                var popup = eMarker.GetComponent<MarkerPopupHandler>();
+                if (popup != null)
+                {
+                    popup.classId = classId;
+                    popup.className = className;
+                }
+
                 m_spwanedEntities.Add(eMarker);
 
                 // Update marker transform with the real world transform
