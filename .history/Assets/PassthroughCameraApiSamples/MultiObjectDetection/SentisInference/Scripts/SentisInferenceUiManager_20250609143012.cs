@@ -193,7 +193,6 @@ namespace PassthroughCameraSamples.MultiObjectDetection
             BoxDrawn.Clear();
         }
 
-        // New Added
         private void DrawBox(BoundingBox box, int id)
         {
             GameObject panel;

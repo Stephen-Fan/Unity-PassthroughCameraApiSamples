@@ -193,7 +193,6 @@ namespace PassthroughCameraSamples.MultiObjectDetection
             BoxDrawn.Clear();
         }
 
-        // New Added
         private void DrawBox(BoundingBox box, int id)
         {
             GameObject panel;
@@ -243,6 +242,36 @@ namespace PassthroughCameraSamples.MultiObjectDetection
             label.text = box.Label;
             label.fontSize = 12;
         }
+        // private void DrawBox(BoundingBox box, int id)
+        // {
+        //     GameObject panel;
+
+        //     if (id < m_boxPool.Count)
+        //     {
+        //         panel = m_boxPool[id];
+        //         if (panel == null) panel = CreateNewBox(m_boxColor);
+        //         else panel.SetActive(true);
+        //     }
+        //     else
+        //     {
+        //         panel = CreateNewBox(m_boxColor);
+        //     }
+
+        //     // Ensure the panel is under the display image canvas
+        //     panel.transform.SetParent(m_displayImage.transform, false);
+
+        //     var rt = panel.GetComponent<RectTransform>();
+
+        //     // Set position and size
+        //     rt.anchoredPosition = new Vector2(box.CenterX, box.CenterY);
+        //     rt.sizeDelta = new Vector2(box.Width, box.Height);
+
+        //     // Update label
+        //     var label = panel.GetComponentInChildren<Text>();
+        //     label.text = box.Label;
+        //     label.fontSize = m_fontSize;  // You can adjust this globally
+        // }
+
 
         private GameObject CreateNewBox(Color color)
         {

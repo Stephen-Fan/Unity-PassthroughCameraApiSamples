@@ -120,7 +120,7 @@ namespace PassthroughCameraSamples.MultiObjectDetection
             var count = 0;
             foreach (var box in m_uiInference.BoxDrawn)
             {
-                if (PlaceMarkerUsingEnvironmentRaycast(box.WorldPos, box.ClassName, box.ClassID))
+                if (PlaceMarkerUsingEnvironmentRaycast(box.WorldPos, box.ClassName, box.classId))
                 {
                     count++;
                 }
@@ -172,7 +172,7 @@ namespace PassthroughCameraSamples.MultiObjectDetection
                     popup.classId = classId;
                     popup.className = className;
                 }
-
+                
                 m_spwanedEntities.Add(eMarker);
 
                 // Update marker transform with the real world transform
